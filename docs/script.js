@@ -47,17 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 let overlay = document.createElement ('div')
                 let emailModale = document.createElement('p')
                 let description = document.createElement('p')
+                createModale.id = 'modale'
+                overlay.id = 'overlay'
 
-                overlay.className = 'fixed w-full h-full bg-black opacity-25'
-                
+            
+                //contenu de la modale
                 h1Modale.textContent = user.first_name + " " + user.last_name
                 imgModale.src = user.avatar
                 emailModale.textContent = user.email
                 description.textContent = "Il aime le kung-fu, la boxe, le karaté, le judo, le taekwondo, le kickboxing, le muay thai, le krav maga et les fleurs"
 
-                h1Modale.className="font-bold"
-                description.className='pt-5'
-                createModale.className = 'fixed w-80 h-80 bg-white z-100 justify-center align-center'
+                overlay.className = 'fixed w-full h-full bg-black opacity-25'
+                h1Modale.className="font-bold py-4"
+                description.className='py-auto'
+                createModale.className = 'fixed w-80 h-80 bg-white z-100 justify-center align-center shadox-lg '
                 imgModale.className = 'm-auto'
                 description.className = 'p-2'
 
@@ -67,13 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 createModale.appendChild(imgModale)
                 createModale.appendChild(emailModale)
                 createModale.appendChild(description)
+
+
+                let modale = document.getElementById('modale')
+                let overlaybg = document.getElementById('overlay')
+
+                modale.onclick = () => {
+                    modale.remove();
+                    overlaybg.remove();
+                };
                 
+         
             }
-        )
-}
-        
-        
 
+                    
+        })
 
-
-
+    })
+})
