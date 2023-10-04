@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 overlay.className = 'fixed w-full h-full bg-black opacity-25'
                 h1Modale.className="font-bold py-4"
-                description.className='py-auto'
-                createModale.className = 'fixed w-80 h-80 bg-white z-100 justify-center align-center shadox-lg '
+                description.className='py-auto mx-2'
+                createModale.className = 'fixed w-80 h-80 bg-white z-100 justify-center align-center shadox-lg rounded-lg'
                 imgModale.className = 'm-auto'
                 description.className = 'p-2'
 
