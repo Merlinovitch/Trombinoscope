@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //Modale
             createDiv.onclick = () => {
                 let createModale = document.createElement('div')
+                let modaleContainer = document.createElement('div')
                 let h1Modale = document.createElement('h1')
                 let imgModale = document.createElement ('img')
                 let overlay = document.createElement ('div')
@@ -57,27 +58,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 emailModale.textContent = user.email
                 description.textContent = "Il aime le kung-fu, la boxe, le karaté, le judo, le taekwondo, le kickboxing, le muay thai, le krav maga et les fleurs"
 
+                modaleContainer.className = "container fixed top-20 left-20 mx-auto flex justify-center align-center"
                 overlay.className = 'fixed w-full h-full bg-black opacity-25'
                 h1Modale.className="font-bold py-4"
                 description.className='py-auto mx-2'
-                createModale.className = 'fixed w-80 h-80 bg-white z-100 justify-center align-center shadox-lg rounded-lg'
+                createModale.className = 'absolute container mx-auto w-80 h-80 bg-white z-500 border shadox-lg rounded-lg text-center'
                 imgModale.className = 'm-auto'
                 description.className = 'p-2'
+                
+                let bodybody = document.body
 
-                root.appendChild(overlay)
-                root.appendChild(createModale)
+                root.classList.add("blur-lg")
+
+                root.insertAdjacentElement('afterend', modaleContainer)
+                modaleContainer.appendChild(createModale)
                 createModale.appendChild(h1Modale)
                 createModale.appendChild(imgModale)
                 createModale.appendChild(emailModale)
                 createModale.appendChild(description)
 
-
-                let modale = document.getElementById('modale')
-                let overlaybg = document.getElementById('overlay')
+           
+              
+                bodybody.insertBefore(overlay, root)
 
                 modale.onclick = () => {
+                    let modale = document.getElementById('modale')
+                    let overlaybg = document.getElementById('overlay')
+                    root.classList.remove('blur-lg');
                     modale.remove();
                     overlaybg.remove();
+                    modaleContainer.remove();
+                    
                 };
                 
          
